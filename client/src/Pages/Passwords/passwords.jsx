@@ -6,58 +6,6 @@ import axios from "axios";
 
 export const Passwords = () => {
   const [data, setData] = React.useState(null);
-  // const data = [
-  //   {
-  //     id: 1,
-  //     title: "Facebook",
-  //     url: "https://faceboook.com",
-  //     username: "tghimanshu",
-  //     categories: [
-  //       { title: "Personal", color: "primary" },
-  //       { title: "Social", color: "warning" },
-  //     ],
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Facebook",
-  //     url: "https://faceboook.com",
-  //     username: "tghimanshu",
-  //     categories: [
-  //       { title: "Neutral", color: "primary" },
-  //       { title: "Social", color: "warning" },
-  //     ],
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Facebook",
-  //     url: "https://faceboook.com",
-  //     username: "tghimanshu",
-  //     categories: [
-  //       { title: "Uncategorized", color: "dark" },
-  //       { title: "Social", color: "warning" },
-  //     ],
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "Facebook",
-  //     url: "https://faceboook.com",
-  //     username: "tghimanshu",
-  //     categories: [
-  //       { title: "Social", color: "primary" },
-  //       { title: "Social", color: "warning" },
-  //     ],
-  //   },
-  //   {
-  //     id: 5,
-  //     title: "Facebook",
-  //     url: "https://faceboook.com",
-  //     username: "tghimanshu",
-  //     categories: [
-  //       { title: "Social", color: "primary" },
-  //       { title: "Social", color: "warning" },
-  //     ],
-  //   },
-  // ];
 
   React.useEffect(() => {
     const getPasswords = async () => {

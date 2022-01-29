@@ -2,9 +2,12 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { AddSecureNoteModal } from "../Modals/SecureNote.compmonent";
 import "./sidebar.css";
 
 export const Sidebar = () => {
+  const [showSNModal, setShowSNModal] = React.useState(false);
+
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
@@ -31,8 +34,12 @@ export const Sidebar = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu variant="dark">
-              <Dropdown.Item href="#/action-2">Password</Dropdown.Item>{" "}
-              <Dropdown.Item href="#/action-3">Secure Note</Dropdown.Item>
+              <Dropdown.Item as="button" onClick={setShowSNModal}>
+                Password
+              </Dropdown.Item>{" "}
+              <Dropdown.Item as="button" onClick={setShowSNModal}>
+                Secure Note
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </li>
@@ -106,6 +113,10 @@ export const Sidebar = () => {
           <Dropdown.Item href="#/action-4">Sign Out</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
+      <AddSecureNoteModal
+        show={showSNModal}
+        onHide={() => setShowSNModal(false)}
+      />
     </div>
   );
 };

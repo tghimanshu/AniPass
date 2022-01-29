@@ -60,8 +60,25 @@ const passwordSchema = new mongoose.Schema({
   },
 });
 
+const secureNotesSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  expiresAt: {
+    type: Date,
+    default: null,
+  },
+  note: {
+    type: String,
+  },
+});
+
+secureNotesSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
+
 const User = mongoose.model("User", userSchema);
 const Password = mongoose.model("Password", passwordSchema);
+const SecureNote = mongoose.model("SecureNote", secureNotesSchema);
 
 async function hash_password(pass) {
   const salt = await bcrypt.genSalt(10);
@@ -72,5 +89,6 @@ async function hash_password(pass) {
 module.exports = {
   User,
   Password,
+  SecureNote,
   hash_password,
 };
