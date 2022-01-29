@@ -1,0 +1,7 @@
+#create-btn::after {
+  display: none;
+}
+
+#sidebar-profile::after {
+  transform: rotate(180deg);
+}
