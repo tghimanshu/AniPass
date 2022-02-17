@@ -1,12 +1,22 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Dropdown } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { AddPasswordModal } from "../Modals/Password.compmonent";
 import { AddSecureNoteModal } from "../Modals/SecureNote.compmonent";
 import "./sidebar.css";
 
 export const Sidebar = () => {
   const [showSNModal, setShowSNModal] = React.useState(false);
+  const [showPModal, setShowPModal] = React.useState(false);
+
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (!localStorage.getItem("user")) {
+      navigate("/signIn");
+    }
+  }, []);
 
   return (
     <div
@@ -34,7 +44,7 @@ export const Sidebar = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu variant="dark">
-              <Dropdown.Item as="button" onClick={setShowSNModal}>
+              <Dropdown.Item as="button" onClick={setShowPModal}>
                 Password
               </Dropdown.Item>{" "}
               <Dropdown.Item as="button" onClick={setShowSNModal}>
@@ -110,13 +120,22 @@ export const Sidebar = () => {
           <Dropdown.Item href="#/action-2">Profile</Dropdown.Item>{" "}
           <Dropdown.Item href="#/action-3">Settings</Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item href="#/action-4">Sign Out</Dropdown.Item>
+          <Dropdown.Item
+            as="button"
+            onClick={() => {
+              localStorage.removeItem("user");
+              navigate("/signIn");
+            }}
+          >
+            Sign Out
+          </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
       <AddSecureNoteModal
         show={showSNModal}
         onHide={() => setShowSNModal(false)}
       />
+      <AddPasswordModal show={showPModal} onHide={() => setShowPModal(false)} />
     </div>
   );
 };

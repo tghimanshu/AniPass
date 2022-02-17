@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Button,
   Container,
   Form,
   Modal,
@@ -65,11 +64,8 @@ export function AddSecureNoteModal(props) {
                     : "is-valid")
                 }
                 {...register("title", {
-                  required: { value: true, message: "Title Is Required" },
-                  minLength: {
-                    value: 5,
-                    message: "Title should be of length 5 ",
-                  },
+                  required: true,
+                  minLength: 5,
                 })}
               />
             </div>

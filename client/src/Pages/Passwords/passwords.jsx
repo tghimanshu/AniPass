@@ -2,18 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import { Datatable } from "../../Components/DataTable/DataTable.component";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { passwordActions } from "../../Redux/Actions/actions";
+import { useSelector } from "react-redux";
 
 export const Passwords = () => {
-  const [data, setData] = React.useState(null);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
-    const getPasswords = async () => {
-      const { data } = await axios.get("http://localhost:5000/passwords");
-      setData(data.body);
-    };
-    getPasswords();
-  }, []);
+    dispatch(passwordActions());
+  }, [dispatch]);
+
+  const data = useSelector((state) => state.passwords.passwords);
 
   const columns = [
     {
@@ -48,7 +48,6 @@ export const Passwords = () => {
               title: (
                 <div className="d-flex align-items-center text-decoration-none">
                   <img
-                    // src={`https://thumbs.dreamstime.com/b/print-204672012.jpg`}
                     src={password.image_url}
                     alt="facebook"
                     width="40"
