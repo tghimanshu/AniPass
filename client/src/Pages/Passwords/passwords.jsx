@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import { Datatable } from "../../Components/DataTable/DataTable.component";
 import { useDispatch } from "react-redux";
-import { passwordActions } from "../../Redux/Actions/actions";
+import {
+  passwordActions,
+  deletePasswordActions,
+} from "../../Redux/Actions/actions";
 import { useSelector } from "react-redux";
+import { AddPasswordModal } from "../../Components/Modals/Password.compmonent";
 
 export const Passwords = () => {
+  const [showPModal, setShowPModal] = useState(false);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -38,9 +43,17 @@ export const Passwords = () => {
   ];
 
   return (
-    <Card>
+    <Card className="container">
       <Card.Body>
-        <Card.Title as="h5">Passwords</Card.Title>
+        <Card.Title
+          as="h5"
+          className="d-flex justify-content-between align-items-center"
+        >
+          <div>Passwords</div>
+          <button className="btn btn-success" onClick={setShowPModal}>
+            Add New
+          </button>
+        </Card.Title>
         {data && (
           <Datatable
             columns={columns}
@@ -79,9 +92,19 @@ export const Passwords = () => {
                   <Link to="/editPassword" className="btn btn-link">
                     <i className="bi bi-pencil text-primary"></i>
                   </Link>
-                  <button className="btn btn-link">
+                  <button
+                    className="btn btn-link"
+                    onClick={() => {
+                      dispatch(deletePasswordActions(password._id));
+                      dispatch(passwordActions());
+                    }}
+                  >
                     <i className="bi bi-trash text-danger"></i>
                   </button>
+                  <AddPasswordModal
+                    show={showPModal}
+                    onHide={() => setShowPModal(false)}
+                  />
                 </div>
               ),
             }))}

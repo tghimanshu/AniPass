@@ -1,16 +1,23 @@
 import React from "react";
 import { Container, Form, Modal } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { MultiSelect } from "../Select/CategorySelect.Component";
 
 export function AddPasswordModal(props) {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, control } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    if (data.categories === undefined) {
+      data.categories = [];
+    } else {
+      data.categories = data.categories.map((c) => c.value);
+    }
     await axios.post("http://localhost:5000/passwords", data);
     props.onHide();
-    // navigate("/passwords");
+    navigate("/passwords");
   };
 
   return (
@@ -61,7 +68,12 @@ export function AddPasswordModal(props) {
                 {...register("password", { required: true })}
               />
             </Form.Group>
-            <button className="btn btn-success mt-4" type="submit">
+            <Form.Group className="mb-3">
+              <Form.Label>Categories</Form.Label>
+              <MultiSelect name={"categories"} control={control} />
+            </Form.Group>
+            <hr />
+            <button className="btn btn-success" type="submit">
               Submit
             </button>
           </form>
