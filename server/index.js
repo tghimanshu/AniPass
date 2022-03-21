@@ -9,8 +9,15 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(
+  "/u/:userId/passwords",
+  (req, res, next) => {
+    req.userId = req.params.userId;
+    next();
+  },
+  passwordRoutes
+);
 app.use("/users", userRoutes);
-app.use("/passwords", passwordRoutes);
 app.use("/secureNotes", secureNoteRoutes);
 app.use("/categories", categoriesRoutes);
 app.get("/", (req, res) => {

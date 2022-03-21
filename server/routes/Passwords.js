@@ -1,5 +1,5 @@
 const express = require("express");
-const { Password } = require("../models/models");
+const { Password, User } = require("../models/models");
 const router = express.Router();
 const bcrpyt = require("bcrypt");
 
@@ -15,7 +15,9 @@ router.get("/:id", async function (req, res, next) {
 
 /* GET users listing. */
 router.get("/", async function (req, res, next) {
-  const passwords = await Password.find().populate("categories");
+  const passwords = await Password.find({ user: req.params.userId }).populate(
+    "categories"
+  );
   res.json({
     success: true,
     body: passwords,
@@ -26,19 +28,26 @@ router.get("/", async function (req, res, next) {
 router.post("/", async function (req, res, next) {
   try {
     // req.body.password = await hash_password(req.body.password);
-    console.log("done");
     const password = new Password({
       ...req.body,
       image_url:
         "https://s2.googleusercontent.com/s2/favicons?domain=" +
         new URL(req.body.url).host,
     });
-    await password.save();
-    res.json({
+    const pId = await password.save();
+
+    const user = await User.findById(req.userId);
+    user.passwords.push(pId._id);
+    await user.save();
+
+    // console.log("pid" + pId);
+    return res.json({
       success: true,
       body: password,
+      // meta_user: user,
     });
   } catch (error) {
+    console.log(error);
     res.send(error);
   }
 });
