@@ -21,6 +21,9 @@ import {
   DELETE_SECURE_NOTE_REQUEST,
   DELETE_SECURE_NOTE_SUCCESS,
   DELETE_SECURE_NOTE_FAILED,
+  ADD_CATEGORIES_REQUEST,
+  ADD_CATEGORIES_SUCCESS,
+  ADD_CATEGORIES_FAILED,
 } from "../Constants/constants";
 
 /* PASSWORD ACTIONS */
@@ -30,7 +33,9 @@ export const passwordActions = () => async (dispatch) => {
     dispatch({
       type: PASSWORD_REQUEST,
     });
-    const { data } = await http.get("/passwords");
+    const { data } = await http.get(
+      "/u/" + localStorage.getItem("user") + "/passwords"
+    );
     dispatch({
       type: PASSWORD_SUCCESS,
       payload: data.body,
@@ -51,7 +56,10 @@ export const addPasswordActions = (body) => async (dispatch) => {
     dispatch({
       type: ADD_PASSWORD_REQUEST,
     });
-    const { data } = await http.post("/passwords", body);
+    const { data } = await http.post(
+      "/u/" + localStorage.getItem("user") + "/passwords",
+      body
+    );
     dispatch({
       type: ADD_PASSWORD_SUCCESS,
       payload: data.body,
@@ -72,7 +80,9 @@ export const deletePasswordActions = (id) => async (dispatch) => {
     dispatch({
       type: DELETE_PASSWORD_REQUEST,
     });
-    const { data } = await http.delete("/passwords/" + id);
+    const { data } = await http.delete(
+      "/u/" + localStorage.getItem("user") + "/passwords/" + id
+    );
     dispatch({
       type: DELETE_PASSWORD_SUCCESS,
       payload: data.body,
@@ -95,7 +105,9 @@ export const secureNoteAction = () => async (dispatch) => {
     dispatch({
       type: SECURE_NOTE_REQUEST,
     });
-    const { data } = await http.get("/secureNotes");
+    const { data } = await http.get(
+      "/u/" + localStorage.getItem("user") + "/secureNotes"
+    );
     dispatch({
       type: SECURE_NOTE_SUCCESS,
       payload: data.body,
@@ -137,7 +149,9 @@ export const deleteSecureNoteAction = (id) => async (dispatch) => {
     dispatch({
       type: DELETE_SECURE_NOTE_REQUEST,
     });
-    const { data } = await http.delete("/secureNotes/" + id);
+    const { data } = await http.delete(
+      "/u/" + localStorage.getItem("user") + "/secureNotes/" + id
+    );
     dispatch({
       type: DELETE_SECURE_NOTE_SUCCESS,
       payload: data.body,
@@ -168,6 +182,27 @@ export const categoriesActions = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: CATEGORIES_FAILED,
+      payload: error,
+      // error.response && error.response.data.message
+      //   ? error.response.data.message
+      //   : error.message,
+    });
+  }
+};
+
+export const addCategoryAction = (body) => async (dispatch) => {
+  try {
+    dispatch({
+      type: ADD_CATEGORIES_REQUEST,
+    });
+    const { data } = await http.post("/categories", body);
+    dispatch({
+      type: ADD_CATEGORIES_SUCCESS,
+      payload: data.body,
+    });
+  } catch (error) {
+    dispatch({
+      type: ADD_CATEGORIES_FAILED,
       payload: error,
       // error.response && error.response.data.message
       //   ? error.response.data.message

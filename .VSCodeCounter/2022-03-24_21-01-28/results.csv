@@ -1,0 +1,44 @@
+"filename", "language", "JavaScript", "JSON", "JavaScript React", "XML", "CSS", "Markdown", "HTML", "comment", "blank", "total"
+"e:\projects\react\anipass\client\README.md", "Markdown", 0, 0, 0, 0, 0, 38, 0, 0, 33, 71
+"e:\projects\react\anipass\client\package-lock.json", "JSON", 0, 11917, 0, 0, 0, 0, 0, 0, 1, 11918
+"e:\projects\react\anipass\client\package.json", "JSON", 0, 52, 0, 0, 0, 0, 0, 0, 1, 53
+"e:\projects\react\anipass\client\public\index.html", "HTML", 0, 0, 0, 0, 0, 0, 20, 23, 1, 44
+"e:\projects\react\anipass\client\public\manifest.json", "JSON", 0, 25, 0, 0, 0, 0, 0, 0, 1, 26
+"e:\projects\react\anipass\client\src\App.css", "CSS", 0, 0, 0, 0, 33, 0, 0, 0, 6, 39
+"e:\projects\react\anipass\client\src\App.js", "JavaScript", 49, 0, 0, 0, 0, 0, 0, 0, 4, 53
+"e:\projects\react\anipass\client\src\App.test.js", "JavaScript", 7, 0, 0, 0, 0, 0, 0, 0, 2, 9
+"e:\projects\react\anipass\client\src\Components\DataTable\DataTable.component.jsx", "JavaScript React", 0, 0, 15, 0, 0, 0, 0, 0, 2, 17
+"e:\projects\react\anipass\client\src\Components\Modals\Password.compmonent.jsx", "JavaScript React", 0, 0, 81, 0, 0, 0, 0, 0, 4, 85
+"e:\projects\react\anipass\client\src\Components\Modals\SecureNote.compmonent.jsx", "JavaScript React", 0, 0, 150, 0, 0, 0, 0, 0, 4, 154
+"e:\projects\react\anipass\client\src\Components\Navbar\navbar.component.jsx", "JavaScript React", 0, 0, 27, 0, 0, 0, 0, 0, 3, 30
+"e:\projects\react\anipass\client\src\Components\Select\CategorySelect.Component.jsx", "JavaScript React", 0, 0, 42, 0, 0, 0, 0, 2, 6, 50
+"e:\projects\react\anipass\client\src\Components\Sidebar\sidebar.component.jsx", "JavaScript React", 0, 0, 134, 0, 0, 0, 0, 1, 7, 142
+"e:\projects\react\anipass\client\src\Components\Sidebar\sidebar.css", "CSS", 0, 0, 0, 0, 6, 0, 0, 0, 2, 8
+"e:\projects\react\anipass\client\src\Pages\Dashboard\Dashboard.jsx", "JavaScript React", 0, 0, 46, 0, 0, 0, 0, 0, 5, 51
+"e:\projects\react\anipass\client\src\Pages\PasswordGenerator\PasswordGenerator.jsx", "JavaScript React", 0, 0, 8, 0, 0, 0, 0, 0, 2, 10
+"e:\projects\react\anipass\client\src\Pages\Passwords\editPassword.jsx", "JavaScript React", 0, 0, 74, 0, 0, 0, 0, 0, 2, 76
+"e:\projects\react\anipass\client\src\Pages\Passwords\passwords.jsx", "JavaScript React", 0, 0, 111, 0, 0, 0, 0, 0, 6, 117
+"e:\projects\react\anipass\client\src\Pages\SecureNotes\SecureNotes.jsx", "JavaScript React", 0, 0, 82, 0, 0, 0, 0, 0, 6, 88
+"e:\projects\react\anipass\client\src\Pages\SignIn\signin.jsx", "JavaScript React", 0, 0, 92, 0, 0, 0, 0, 0, 6, 98
+"e:\projects\react\anipass\client\src\Pages\SignUp\SignUp.jsx", "JavaScript React", 0, 0, 8, 0, 0, 0, 0, 0, 2, 10
+"e:\projects\react\anipass\client\src\Redux\Actions\actions.js", "JavaScript", 143, 0, 0, 0, 0, 0, 0, 24, 11, 178
+"e:\projects\react\anipass\client\src\Redux\Constants\constants.js", "JavaScript", 27, 0, 0, 0, 0, 0, 0, 3, 9, 39
+"e:\projects\react\anipass\client\src\Redux\Reducers\reducers.js", "JavaScript", 110, 0, 0, 0, 0, 0, 0, 3, 11, 124
+"e:\projects\react\anipass\client\src\Redux\store.js", "JavaScript", 27, 0, 0, 0, 0, 0, 0, 0, 5, 32
+"e:\projects\react\anipass\client\src\Utils\Helpers.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"e:\projects\react\anipass\client\src\Utils\http.js", "JavaScript", 13, 0, 0, 0, 0, 0, 0, 0, 5, 18
+"e:\projects\react\anipass\client\src\bootstrap-cosmos.min.css", "CSS", 0, 0, 0, 0, 2, 0, 0, 10, 0, 12
+"e:\projects\react\anipass\client\src\index.css", "CSS", 0, 0, 0, 0, 36, 0, 0, 6, 9, 51
+"e:\projects\react\anipass\client\src\index.js", "JavaScript", 16, 0, 0, 0, 0, 0, 0, 1, 2, 19
+"e:\projects\react\anipass\client\src\logo.svg", "XML", 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"e:\projects\react\anipass\client\src\reportWebVitals.js", "JavaScript", 12, 0, 0, 0, 0, 0, 0, 0, 2, 14
+"e:\projects\react\anipass\client\src\setupTests.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 4, 1, 6
+"e:\projects\react\anipass\package.json", "JSON", 0, 17, 0, 0, 0, 0, 0, 0, 1, 18
+"e:\projects\react\anipass\server\index.js", "JavaScript", 24, 0, 0, 0, 0, 0, 0, 0, 4, 28
+"e:\projects\react\anipass\server\models\models.js", "JavaScript", 139, 0, 0, 0, 0, 0, 0, 0, 11, 150
+"e:\projects\react\anipass\server\package.json", "JSON", 0, 24, 0, 0, 0, 0, 0, 0, 1, 25
+"e:\projects\react\anipass\server\routes\Categories.js", "JavaScript", 49, 0, 0, 0, 0, 0, 0, 3, 7, 59
+"e:\projects\react\anipass\server\routes\Passwords.js", "JavaScript", 61, 0, 0, 0, 0, 0, 0, 5, 9, 75
+"e:\projects\react\anipass\server\routes\SecureNotes.js", "JavaScript", 54, 0, 0, 0, 0, 0, 0, 3, 7, 64
+"e:\projects\react\anipass\server\routes\Users.js", "JavaScript", 73, 0, 0, 0, 0, 0, 0, 3, 8, 84
+"Total", "-", 805, 12035, 870, 1, 77, 38, 20, 91, 210, 14147

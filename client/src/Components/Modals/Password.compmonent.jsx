@@ -4,8 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { MultiSelect } from "../Select/CategorySelect.Component";
+import { useDispatch } from "react-redux";
+import {
+  addPasswordActions,
+  passwordActions,
+} from "../../Redux/Actions/actions";
 
 export function AddPasswordModal(props) {
+  const dispatch = useDispatch();
   const { register, handleSubmit, control } = useForm();
   const navigate = useNavigate();
 
@@ -15,9 +21,13 @@ export function AddPasswordModal(props) {
     } else {
       data.categories = data.categories.map((c) => c.value);
     }
-    await axios.post("http://localhost:5000/passwords", data);
-    props.onHide();
-    navigate("/passwords");
+    // const userId = localStorage.getItem("user");
+    // await axios.post(`http://localhost:5000/u/${userId}/passwords`, data);
+    Promise.resolve(dispatch(addPasswordActions(data))).then(() => {
+      props.onHide();
+      dispatch(passwordActions());
+      // navigate("/passwords");
+    });
   };
 
   return (

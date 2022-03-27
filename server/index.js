@@ -17,8 +17,15 @@ app.use(
   },
   passwordRoutes
 );
+app.use(
+  "/u/:userId/secureNotes",
+  (req, res, next) => {
+    req.userId = req.params.userId;
+    next();
+  },
+  secureNoteRoutes
+);
 app.use("/users", userRoutes);
-app.use("/secureNotes", secureNoteRoutes);
 app.use("/categories", categoriesRoutes);
 app.get("/", (req, res) => {
   res.send("hello");

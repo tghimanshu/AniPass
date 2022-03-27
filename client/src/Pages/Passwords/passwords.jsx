@@ -95,8 +95,9 @@ export const Passwords = () => {
                   <button
                     className="btn btn-link"
                     onClick={() => {
-                      dispatch(deletePasswordActions(password._id));
-                      dispatch(passwordActions());
+                      Promise.resolve(
+                        dispatch(deletePasswordActions(password._id))
+                      ).then(() => dispatch(passwordActions()));
                     }}
                   >
                     <i className="bi bi-trash text-danger"></i>

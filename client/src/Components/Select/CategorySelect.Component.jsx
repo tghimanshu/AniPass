@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { categoriesActions } from "../../Redux/Actions/actions";
+import {
+  addCategoryAction,
+  categoriesActions,
+} from "../../Redux/Actions/actions";
 import Select from "react-select";
+import Creatable from "react-select/creatable";
 import { Controller } from "react-hook-form";
 
 export const MultiSelect = ({ name, control }) => {
@@ -21,6 +25,31 @@ export const MultiSelect = ({ name, control }) => {
       value: category._id,
     }));
 
+  const createCategory = (data) => {
+    const array = [
+      "primary",
+      "secondary",
+      "danger",
+      "warning",
+      "success",
+      "dark",
+      "light",
+      "info",
+    ];
+    const arrayElem = array[Math.floor(Math.random() * array.length)];
+    Promise.resolve(
+      dispatch(
+        addCategoryAction({
+          title: data,
+          color: arrayElem,
+          user: localStorage.getItem("user"),
+        })
+      )
+    ).then(() => {
+      dispatch(categoriesActions());
+    });
+  };
+
   return (
     <>
       {data && (
@@ -29,12 +58,13 @@ export const MultiSelect = ({ name, control }) => {
           name={name}
           render={({ field: { value, onChange } }) => {
             return (
-              <Select
+              <Creatable
                 isMulti
                 defaultValue={[]}
                 placeholder={"Categories...."}
                 options={data}
                 // onChange={handleChange}
+                onCreateOption={createCategory}
                 onChange={(options) => onChange(options)}
                 allowSelectAll={true}
                 value={value}

@@ -66,8 +66,11 @@ export const SecureNotes = () => {
                   <button
                     className="btn btn-link"
                     onClick={() => {
-                      dispatch(deleteSecureNoteAction(note._id));
-                      dispatch(secureNoteAction());
+                      Promise.resolve(
+                        dispatch(deleteSecureNoteAction(note._id))
+                      ).then(() => {
+                        dispatch(secureNoteAction());
+                      });
                     }}
                   >
                     <i className="bi bi-trash text-danger"></i>

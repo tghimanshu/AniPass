@@ -1,0 +1,96 @@
+Date : 2022-03-24 20:56:45
+Directory : e:\projects\react\anipass
+Total : 42 files,  13846 codes, 91 comments, 210 blanks, all 14147 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| JSON             |          5 |     12,035 |          0 |          5 |     12,040 |
+| JavaScript React |         13 |        870 |          3 |         55 |        928 |
+| JavaScript       |         17 |        805 |         49 |         99 |        953 |
+| CSS              |          4 |         77 |         16 |         17 |        110 |
+| Markdown         |          1 |         38 |          0 |         33 |         71 |
+| HTML             |          1 |         20 |         23 |          1 |         44 |
+| XML              |          1 |          1 |          0 |          0 |          1 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                   |         42 |     13,846 |         91 |        210 |     14,147 |
+| client                                                                              |         34 |     13,405 |         77 |        162 |     13,644 |
+| client\public                                                                       |          2 |         45 |         23 |          2 |         70 |
+| client\src                                                                          |         29 |      1,353 |         54 |        125 |      1,532 |
+| client\src\Components                                                               |          7 |        455 |          3 |         28 |        486 |
+| client\src\Components\DataTable                                                     |          1 |         15 |          0 |          2 |         17 |
+| client\src\Components\Modals                                                        |          2 |        231 |          0 |          8 |        239 |
+| client\src\Components\Navbar                                                        |          1 |         27 |          0 |          3 |         30 |
+| client\src\Components\Select                                                        |          1 |         42 |          2 |          6 |         50 |
+| client\src\Components\Sidebar                                                       |          2 |        140 |          1 |          9 |        150 |
+| client\src\Pages                                                                    |          7 |        421 |          0 |         29 |        450 |
+| client\src\Pages\Dashboard                                                          |          1 |         46 |          0 |          5 |         51 |
+| client\src\Pages\PasswordGenerator                                                  |          1 |          8 |          0 |          2 |         10 |
+| client\src\Pages\Passwords                                                          |          2 |        185 |          0 |          8 |        193 |
+| client\src\Pages\SecureNotes                                                        |          1 |         82 |          0 |          6 |         88 |
+| client\src\Pages\SignIn                                                             |          1 |         92 |          0 |          6 |         98 |
+| client\src\Pages\SignUp                                                             |          1 |          8 |          0 |          2 |         10 |
+| client\src\Redux                                                                    |          4 |        307 |         30 |         36 |        373 |
+| client\src\Redux\Actions                                                            |          1 |        143 |         24 |         11 |        178 |
+| client\src\Redux\Constants                                                          |          1 |         27 |          3 |          9 |         39 |
+| client\src\Redux\Reducers                                                           |          1 |        110 |          3 |         11 |        124 |
+| client\src\Utils                                                                    |          2 |         13 |          0 |          6 |         19 |
+| server                                                                              |          7 |        424 |         14 |         47 |        485 |
+| server\models                                                                       |          1 |        139 |          0 |         11 |        150 |
+| server\routes                                                                       |          4 |        237 |         14 |         31 |        282 |
++-------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                            | language         | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| e:\projects\react\anipass\client\README.md                                          | Markdown         |         38 |          0 |         33 |         71 |
+| e:\projects\react\anipass\client\package-lock.json                                  | JSON             |     11,917 |          0 |          1 |     11,918 |
+| e:\projects\react\anipass\client\package.json                                       | JSON             |         52 |          0 |          1 |         53 |
+| e:\projects\react\anipass\client\public\index.html                                  | HTML             |         20 |         23 |          1 |         44 |
+| e:\projects\react\anipass\client\public\manifest.json                               | JSON             |         25 |          0 |          1 |         26 |
+| e:\projects\react\anipass\client\src\App.css                                        | CSS              |         33 |          0 |          6 |         39 |
+| e:\projects\react\anipass\client\src\App.js                                         | JavaScript       |         49 |          0 |          4 |         53 |
+| e:\projects\react\anipass\client\src\App.test.js                                    | JavaScript       |          7 |          0 |          2 |          9 |
+| e:\projects\react\anipass\client\src\Components\DataTable\DataTable.component.jsx   | JavaScript React |         15 |          0 |          2 |         17 |
+| e:\projects\react\anipass\client\src\Components\Modals\Password.compmonent.jsx      | JavaScript React |         81 |          0 |          4 |         85 |
+| e:\projects\react\anipass\client\src\Components\Modals\SecureNote.compmonent.jsx    | JavaScript React |        150 |          0 |          4 |        154 |
+| e:\projects\react\anipass\client\src\Components\Navbar\navbar.component.jsx         | JavaScript React |         27 |          0 |          3 |         30 |
+| e:\projects\react\anipass\client\src\Components\Select\CategorySelect.Component.jsx | JavaScript React |         42 |          2 |          6 |         50 |
+| e:\projects\react\anipass\client\src\Components\Sidebar\sidebar.component.jsx       | JavaScript React |        134 |          1 |          7 |        142 |
+| e:\projects\react\anipass\client\src\Components\Sidebar\sidebar.css                 | CSS              |          6 |          0 |          2 |          8 |
+| e:\projects\react\anipass\client\src\Pages\Dashboard\Dashboard.jsx                  | JavaScript React |         46 |          0 |          5 |         51 |
+| e:\projects\react\anipass\client\src\Pages\PasswordGenerator\PasswordGenerator.jsx  | JavaScript React |          8 |          0 |          2 |         10 |
+| e:\projects\react\anipass\client\src\Pages\Passwords\editPassword.jsx               | JavaScript React |         74 |          0 |          2 |         76 |
+| e:\projects\react\anipass\client\src\Pages\Passwords\passwords.jsx                  | JavaScript React |        111 |          0 |          6 |        117 |
+| e:\projects\react\anipass\client\src\Pages\SecureNotes\SecureNotes.jsx              | JavaScript React |         82 |          0 |          6 |         88 |
+| e:\projects\react\anipass\client\src\Pages\SignIn\signin.jsx                        | JavaScript React |         92 |          0 |          6 |         98 |
+| e:\projects\react\anipass\client\src\Pages\SignUp\SignUp.jsx                        | JavaScript React |          8 |          0 |          2 |         10 |
+| e:\projects\react\anipass\client\src\Redux\Actions\actions.js                       | JavaScript       |        143 |         24 |         11 |        178 |
+| e:\projects\react\anipass\client\src\Redux\Constants\constants.js                   | JavaScript       |         27 |          3 |          9 |         39 |
+| e:\projects\react\anipass\client\src\Redux\Reducers\reducers.js                     | JavaScript       |        110 |          3 |         11 |        124 |
+| e:\projects\react\anipass\client\src\Redux\store.js                                 | JavaScript       |         27 |          0 |          5 |         32 |
+| e:\projects\react\anipass\client\src\Utils\Helpers.js                               | JavaScript       |          0 |          0 |          1 |          1 |
+| e:\projects\react\anipass\client\src\Utils\http.js                                  | JavaScript       |         13 |          0 |          5 |         18 |
+| e:\projects\react\anipass\client\src\bootstrap-cosmos.min.css                       | CSS              |          2 |         10 |          0 |         12 |
+| e:\projects\react\anipass\client\src\index.css                                      | CSS              |         36 |          6 |          9 |         51 |
+| e:\projects\react\anipass\client\src\index.js                                       | JavaScript       |         16 |          1 |          2 |         19 |
+| e:\projects\react\anipass\client\src\logo.svg                                       | XML              |          1 |          0 |          0 |          1 |
+| e:\projects\react\anipass\client\src\reportWebVitals.js                             | JavaScript       |         12 |          0 |          2 |         14 |
+| e:\projects\react\anipass\client\src\setupTests.js                                  | JavaScript       |          1 |          4 |          1 |          6 |
+| e:\projects\react\anipass\package.json                                              | JSON             |         17 |          0 |          1 |         18 |
+| e:\projects\react\anipass\server\index.js                                           | JavaScript       |         24 |          0 |          4 |         28 |
+| e:\projects\react\anipass\server\models\models.js                                   | JavaScript       |        139 |          0 |         11 |        150 |
+| e:\projects\react\anipass\server\package.json                                       | JSON             |         24 |          0 |          1 |         25 |
+| e:\projects\react\anipass\server\routes\Categories.js                               | JavaScript       |         49 |          3 |          7 |         59 |
+| e:\projects\react\anipass\server\routes\Passwords.js                                | JavaScript       |         61 |          5 |          9 |         75 |
+| e:\projects\react\anipass\server\routes\SecureNotes.js                              | JavaScript       |         54 |          3 |          7 |         64 |
+| e:\projects\react\anipass\server\routes\Users.js                                    | JavaScript       |         73 |          3 |          8 |         84 |
+| Total                                                                               |                  |     13,846 |         91 |        210 |     14,147 |
++-------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+

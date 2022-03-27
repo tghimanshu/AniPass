@@ -9,7 +9,7 @@ import { Navbar } from "./Components/Navbar/navbar.component";
 import { Sidebar } from "./Components/Sidebar/sidebar.component";
 import { EditPassword } from "./Pages/Passwords/editPassword";
 import { Passwords } from "./Pages/Passwords/passwords";
-import { SignIn } from "./Pages/SignIn/signin";
+import { SignIn, SignUp } from "./Pages/SignIn/signin";
 import { PasswordGenerator } from "./Pages/PasswordGenerator/PasswordGenerator";
 import { SecureNotes } from "./Pages/SecureNotes/SecureNotes";
 import { Dashboard } from "./Pages/Dashboard/Dashboard";
@@ -18,7 +18,7 @@ function Pages() {
   return (
     <div className="d-flex" style={{ height: "100vh" }}>
       <Sidebar />
-      <div className="main-content flex-fill">
+      <div className="main-content flex-fill" style={{ overflow: "auto" }}>
         <Navbar />
         <div>
           <div className="container">
@@ -36,6 +36,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={<Pages />}>
             <Route path="passwords" element={<Passwords />} />
             <Route path="editPassword" element={<EditPassword />} />

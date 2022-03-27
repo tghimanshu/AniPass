@@ -5,7 +5,7 @@ const bcrpyt = require("bcrypt");
 
 router.get("/:id", async function (req, res, next) {
   try {
-    const password = await Password.findById(req.params.id);
+    const password = await Password.findById(req.userId);
     res.json({
       success: true,
       body: password,
@@ -15,7 +15,7 @@ router.get("/:id", async function (req, res, next) {
 
 /* GET users listing. */
 router.get("/", async function (req, res, next) {
-  const passwords = await Password.find({ user: req.params.userId }).populate(
+  const passwords = await Password.find({ user: req.userId }).populate(
     "categories"
   );
   res.json({
@@ -33,6 +33,7 @@ router.post("/", async function (req, res, next) {
       image_url:
         "https://s2.googleusercontent.com/s2/favicons?domain=" +
         new URL(req.body.url).host,
+      user: req.userId,
     });
     const pId = await password.save();
 
@@ -40,11 +41,9 @@ router.post("/", async function (req, res, next) {
     user.passwords.push(pId._id);
     await user.save();
 
-    // console.log("pid" + pId);
     return res.json({
       success: true,
       body: password,
-      // meta_user: user,
     });
   } catch (error) {
     console.log(error);
@@ -55,8 +54,13 @@ router.post("/", async function (req, res, next) {
 router.delete("/:id", async function (req, res) {
   try {
     const password = await Password.findByIdAndDelete(req.params.id);
+
+    const user = await User.findById(req.userId);
+    user.passwords.filter((p) => p !== req.params.id);
+    await user.save();
+
     res.json({
-      success: false,
+      success: true,
       body: password,
     });
   } catch (error) {}

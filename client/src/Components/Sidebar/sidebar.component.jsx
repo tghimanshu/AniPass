@@ -21,7 +21,7 @@ export const Sidebar = () => {
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
-      style={{ width: "240px", height: "100%" }}
+      style={{ width: "240px", height: "100%", overflow: "auto" }}
     >
       <a
         href="/"
@@ -96,7 +96,28 @@ export const Sidebar = () => {
         </li>
         <hr />
         <span className="mb-2">Teams</span>
+        <li>
+          <NavLink
+            to="/team/profile"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link text-white"
+            }
+          >
+            Team Profile
+          </NavLink>
+        </li>
+        <hr />
         <span className="mb-2">Organizations</span>
+        <li>
+          <NavLink
+            to="/org/profile"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link text-white"
+            }
+          >
+            Profile
+          </NavLink>
+        </li>
       </ul>
       <hr />
       <Dropdown>

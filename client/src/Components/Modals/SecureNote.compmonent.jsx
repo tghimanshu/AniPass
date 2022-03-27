@@ -25,7 +25,8 @@ export function AddSecureNoteModal(props) {
     if (data.expiresAt && data.expiresAt === "") {
       delete data.expiresAt;
     }
-    await axios.post("http://localhost:5000/secureNotes", data);
+    const userId = localStorage.getItem("user");
+    await axios.post(`http://localhost:5000/u/${userId}/secureNotes`, data);
     props.onHide();
     navigate("/secureNotes");
   };

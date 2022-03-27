@@ -79,7 +79,8 @@ const passwordSchema = new mongoose.Schema(
         ref: "Category",
       },
     ],
-    user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", default: null },
+    team: { type: mongoose.Schema.Types.ObjectId, ref: "Team", default: null },
   },
   { timestamps: true }
 );

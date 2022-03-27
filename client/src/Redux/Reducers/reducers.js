@@ -20,6 +20,9 @@ import {
   DELETE_SECURE_NOTE_REQUEST,
   DELETE_SECURE_NOTE_SUCCESS,
   DELETE_SECURE_NOTE_FAILED,
+  ADD_CATEGORIES_REQUEST,
+  ADD_CATEGORIES_SUCCESS,
+  ADD_CATEGORIES_FAILED,
 } from "../Constants/constants";
 
 /* SECURE NOTE REDUCERS */
@@ -116,6 +119,19 @@ export const categoriesReducer = (state = { categories: null }, action) => {
     case CATEGORIES_SUCCESS:
       return { loading: false, categories: action.payload };
     case CATEGORIES_FAILED:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const addCategoriesReducer = (state = { category: null }, action) => {
+  switch (action.type) {
+    case ADD_CATEGORIES_REQUEST:
+      return { loading: true, category: null };
+    case ADD_CATEGORIES_SUCCESS:
+      return { loading: false, category: action.payload };
+    case ADD_CATEGORIES_FAILED:
       return { loading: false, error: action.payload };
     default:
       return state;
