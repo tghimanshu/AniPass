@@ -73,9 +73,9 @@ export const SecureNotes = () => {
               ),
               actions: (
                 <div>
-                  <button className="btn btn-link">
+                  <Link to={"/secureNote/" + note._id} className="btn btn-link">
                     <i className="bi bi-eye text-primary"></i>
-                  </button>
+                  </Link>
                   <CopyToClipboard
                     text={window.location.host + "/secureNote/" + note._id}
                   >
