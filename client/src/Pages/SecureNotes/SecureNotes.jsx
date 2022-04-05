@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Card } from "react-bootstrap";
+import { Button, Card, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { IoCopyOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Datatable } from "../../Components/DataTable/DataTable.component";
@@ -60,6 +62,13 @@ export const SecureNotes = () => {
                   <button className="btn btn-link">
                     <i className="bi bi-eye text-primary"></i>
                   </button>
+                  <CopyToClipboard
+                    text={window.location.host + "/secureNote/" + note._id}
+                  >
+                    <Button variant="light">
+                      <IoCopyOutline fontWeight={"bold"} fontSize={"1.2rem"} />
+                    </Button>
+                  </CopyToClipboard>
                   <Link to="/editPassword" className="btn btn-link">
                     <i className="bi bi-pencil text-primary"></i>
                   </Link>

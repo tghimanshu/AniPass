@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import image from "./bg.png";
 import axios from "axios";
 
@@ -84,12 +84,9 @@ export const SignIn = () => {
           <button className="w-100 btn btn-lg btn-primary" type="submit">
             Sign in
           </button>
-          <a
-            href="https://tghimanshu.com"
-            className="d-block link-primary text-center"
-          >
+          <Link to="/signUp" className="d-block link-primary text-center">
             New to AniPass? Sign Up Here....
-          </a>
+          </Link>
         </form>
       </main>
     </div>
@@ -122,9 +119,8 @@ export const SignUp = () => {
           email,
           password: pass,
         });
-        console.log(data.body);
         localStorage.setItem("user", data.body._id);
-        // navigate("/");
+        navigate("/");
       } else {
         setError(true);
         setTimeout(() => {
@@ -229,12 +225,9 @@ export const SignUp = () => {
           <button className="w-100 btn btn-lg btn-primary" type="submit">
             Sign in
           </button>
-          <a
-            href="https://tghimanshu.com"
-            className="d-block link-primary text-center"
-          >
+          <Link to="/signIn" className="d-block link-primary text-center">
             New to AniPass? Sign Up Here....
-          </a>
+          </Link>
         </form>
       </main>
     </div>

@@ -106,11 +106,31 @@ export const Sidebar = () => {
             Team Profile
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/passwords"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link text-white"
+            }
+          >
+            Passwords
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/secureNotes"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link text-white"
+            }
+          >
+            Secure Notes
+          </NavLink>
+        </li>
         <hr />
         <span className="mb-2">Organizations</span>
         <li>
           <NavLink
-            to="/org/profile"
+            to="/organization/profile"
             className={({ isActive }) =>
               isActive ? "nav-link active" : "nav-link text-white"
             }
@@ -118,40 +138,28 @@ export const Sidebar = () => {
             Profile
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/passwords"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link text-white"
+            }
+          >
+            Passwords
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/secureNotes"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link text-white"
+            }
+          >
+            Secure Notes
+          </NavLink>
+        </li>
       </ul>
       <hr />
-      <Dropdown>
-        <Dropdown.Toggle
-          className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-          as="a"
-          style={{ cursor: "pointer", userSelect: "none" }}
-          id="sidebar-profile"
-        >
-          <img
-            src="https://github.com/mdo.png"
-            alt=""
-            width="32"
-            height="32"
-            className="rounded-circle me-2"
-          />
-          <strong>TG Himanshu</strong>
-        </Dropdown.Toggle>
-
-        <Dropdown.Menu variant="dark">
-          <Dropdown.Item href="#/action-2">Profile</Dropdown.Item>{" "}
-          <Dropdown.Item href="#/action-3">Settings</Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item
-            as="button"
-            onClick={() => {
-              localStorage.removeItem("user");
-              navigate("/signIn");
-            }}
-          >
-            Sign Out
-          </Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
       <AddSecureNoteModal
         show={showSNModal}
         onHide={() => setShowSNModal(false)}

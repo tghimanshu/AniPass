@@ -18,6 +18,7 @@ export function AddSecureNoteModal(props) {
     formState: { errors },
   } = useForm();
   const [canExpire, setCanExpire] = React.useState(false);
+  const [canLimitedViews, setCanLimitedViews] = React.useState(false);
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
@@ -108,6 +109,75 @@ export function AddSecureNoteModal(props) {
                   })}
                 />
               )}
+            </div>
+            <div className="form-group has-success">
+              <Form.Check
+                type="switch"
+                onChange={() => setCanLimitedViews(!canLimitedViews)}
+                className="mt-4"
+                label={
+                  <label className="form-label" htmlFor="inputValid">
+                    Has Limited Views
+                    <OverlayTrigger
+                      placement="top"
+                      overlay={
+                        <Tooltip id="tooltip-top">
+                          Tooltip on <strong>top</strong>.
+                        </Tooltip>
+                      }
+                    >
+                      <i className="bi bi-info-circle-fill ms-2"></i>
+                    </OverlayTrigger>
+                  </label>
+                }
+              />
+              {canLimitedViews && (
+                <input
+                  type="number"
+                  placeholder="Number Of Views..."
+                  className={
+                    "form-control " +
+                    (watch("totalViews") === ""
+                      ? ""
+                      : errors.title
+                      ? "is-invalid"
+                      : "is-valid")
+                  }
+                  {...register("totalViews", {
+                    required: { value: true },
+                  })}
+                />
+              )}
+            </div>
+            <div className="form-group has-success">
+              <label className="form-label mt-4" htmlFor="inputValid">
+                Password
+                <OverlayTrigger
+                  placement="top"
+                  overlay={
+                    <Tooltip id="tooltip-top">
+                      Tooltip on <strong>top</strong>.
+                    </Tooltip>
+                  }
+                >
+                  <i className="bi bi-info-circle-fill ms-2"></i>
+                </OverlayTrigger>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter Note....."
+                className={
+                  "form-control " +
+                  (watch("password") === ""
+                    ? ""
+                    : errors.title
+                    ? "is-invalid"
+                    : "is-valid")
+                }
+                {...register("password", {
+                  required: { value: true, message: "Password Is Required" },
+                })}
+              />
             </div>
             <div className="form-group has-success">
               <label className="form-label mt-4" htmlFor="inputValid">

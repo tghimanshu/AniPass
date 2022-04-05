@@ -13,6 +13,9 @@ import { SignIn, SignUp } from "./Pages/SignIn/signin";
 import { PasswordGenerator } from "./Pages/PasswordGenerator/PasswordGenerator";
 import { SecureNotes } from "./Pages/SecureNotes/SecureNotes";
 import { Dashboard } from "./Pages/Dashboard/Dashboard";
+import { TeamProfile } from "./Pages/TeamProfile/TeamProfile";
+import { OrganizationProfile } from "./Pages/OrganizationProfile/OrganizationProfile";
+import { ShowSecureNote } from "./Pages/ShowSecureNote/ShowSecureNote";
 
 function Pages() {
   return (
@@ -35,6 +38,7 @@ function App() {
     <Fragment>
       <Router>
         <Routes>
+          <Route path="/secureNote/:id" element={<ShowSecureNote />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={<Pages />}>
@@ -42,6 +46,11 @@ function App() {
             <Route path="editPassword" element={<EditPassword />} />
             <Route path="password-generator" element={<PasswordGenerator />} />
             <Route path="secureNotes" element={<SecureNotes />} />
+            <Route path="team/profile" element={<TeamProfile />} />
+            <Route
+              path="organization/profile"
+              element={<OrganizationProfile />}
+            />
             <Route path="" element={<Dashboard />} />
           </Route>
         </Routes>

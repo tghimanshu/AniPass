@@ -39,6 +39,18 @@ const userSchema = new mongoose.Schema({
       ref: "SecureNote",
     },
   ],
+  teamInvite: [
+    {
+      teamId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Team",
+      },
+      accepted: {
+        type: Boolean,
+        default: false,
+      },
+    },
+  ],
 });
 
 const categorySchema = new mongoose.Schema({
@@ -97,6 +109,18 @@ const secureNotesSchema = new mongoose.Schema({
   note: {
     type: String,
   },
+  password: {
+    type: String,
+    required: true,
+  },
+  totalViews: {
+    type: Number,
+    default: -1,
+  },
+  views: {
+    type: Number,
+    default: 0,
+  },
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User", default: null },
   team: { type: mongoose.Schema.Types.ObjectId, ref: "Team", default: null },
 });
@@ -106,12 +130,27 @@ const teamSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  description: {
+    type: String,
+    required: true,
+  },
   members: [
     {
-      type: mongoose.Types.ObjectId,
-      ref: "User",
+      userId: {
+        type: mongoose.Types.ObjectId,
+        ref: "User",
+      },
+      accepted: {
+        type: Boolean,
+        default: false,
+      },
     },
   ],
+  createdBy: {
+    type: mongoose.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
   passwords: [
     {
       type: mongoose.Schema.Types.ObjectId,

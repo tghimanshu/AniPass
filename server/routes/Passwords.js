@@ -58,7 +58,6 @@ router.delete("/:id", async function (req, res) {
     const user = await User.findById(req.userId);
     user.passwords.filter((p) => p !== req.params.id);
     await user.save();
-
     res.json({
       success: true,
       body: password,
