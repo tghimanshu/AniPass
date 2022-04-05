@@ -32,6 +32,10 @@ export const Passwords = () => {
       sortable: true,
     },
     {
+      name: "Password",
+      selector: (row) => row.password,
+    },
+    {
       name: "Categories",
       selector: (row) => row.categories,
       sortable: true,
@@ -84,6 +88,7 @@ export const Passwords = () => {
                   {category.title}
                 </span>
               )),
+              password: <span>********</span>,
               actions: (
                 <div>
                   <button className="btn btn-link">

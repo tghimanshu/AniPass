@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import image from "./bg.png";
 import axios from "axios";
+import http from "../../Utils/http";
 
 export const SignIn = () => {
   const [username, setUsername] = useState("");
@@ -10,21 +11,23 @@ export const SignIn = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (localStorage.getItem("user")) {
+    if (localStorage.getItem("userId")) {
       navigate("/");
     }
   }, [navigate]);
 
   const login = async () => {
     try {
-      const { data } = await axios.post("http://localhost:5000/users/login", {
+      const { data } = await http.post("/users/login", {
         email: username,
         password: pass,
       });
       console.log(data.body);
       localStorage.setItem("user", JSON.stringify(data.body));
+      localStorage.setItem("userId", data.body._id);
       navigate("/");
     } catch (error) {
+      console.log(error);
       setError(true);
       setTimeout(() => {
         setError(false);
@@ -104,7 +107,7 @@ export const SignUp = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (localStorage.getItem("user")) {
+    if (localStorage.getItem("userId")) {
       navigate("/");
     }
   }, [navigate]);
@@ -112,14 +115,15 @@ export const SignUp = () => {
   const register = async () => {
     try {
       if (pass === cpass) {
-        const { data } = await axios.post("http://localhost:5000/users/", {
+        const { data } = await http.post("/users/", {
           name,
           username,
           phone,
           email,
           password: pass,
         });
-        localStorage.setItem("user", data.body._id);
+        localStorage.setItem("user", JSON.stringify(data.body));
+        localStorage.setItem("userId", data.body._id);
         navigate("/");
       } else {
         setError(true);

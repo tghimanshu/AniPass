@@ -34,7 +34,7 @@ export const passwordActions = () => async (dispatch) => {
       type: PASSWORD_REQUEST,
     });
     const { data } = await http.get(
-      "/u/" + localStorage.getItem("user") + "/passwords"
+      "/u/" + localStorage.getItem("userId") + "/passwords"
     );
     dispatch({
       type: PASSWORD_SUCCESS,
@@ -57,7 +57,7 @@ export const addPasswordActions = (body) => async (dispatch) => {
       type: ADD_PASSWORD_REQUEST,
     });
     const { data } = await http.post(
-      "/u/" + localStorage.getItem("user") + "/passwords",
+      "/u/" + localStorage.getItem("userId") + "/passwords",
       body
     );
     dispatch({
@@ -81,7 +81,7 @@ export const deletePasswordActions = (id) => async (dispatch) => {
       type: DELETE_PASSWORD_REQUEST,
     });
     const { data } = await http.delete(
-      "/u/" + localStorage.getItem("user") + "/passwords/" + id
+      "/u/" + localStorage.getItem("userId") + "/passwords/" + id
     );
     dispatch({
       type: DELETE_PASSWORD_SUCCESS,
@@ -106,7 +106,7 @@ export const secureNoteAction = () => async (dispatch) => {
       type: SECURE_NOTE_REQUEST,
     });
     const { data } = await http.get(
-      "/u/" + localStorage.getItem("user") + "/secureNotes"
+      "/u/" + localStorage.getItem("userId") + "/secureNotes"
     );
     dispatch({
       type: SECURE_NOTE_SUCCESS,
@@ -150,7 +150,7 @@ export const deleteSecureNoteAction = (id) => async (dispatch) => {
       type: DELETE_SECURE_NOTE_REQUEST,
     });
     const { data } = await http.delete(
-      "/u/" + localStorage.getItem("user") + "/secureNotes/" + id
+      "/u/" + localStorage.getItem("userId") + "/secureNotes/" + id
     );
     dispatch({
       type: DELETE_SECURE_NOTE_SUCCESS,

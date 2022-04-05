@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Select from "react-select";
+import http from "../../Utils/http";
 
 export function InviteUserModal(props) {
   const [users, setUsers] = useState(null);
@@ -12,7 +13,7 @@ export function InviteUserModal(props) {
 
   useEffect(() => {
     const getUsers = async () => {
-      const data = await axios.get("http://localhost:5000/users");
+      const data = await http.get("/users");
       setUsers(data.data.body);
     };
     getUsers();
@@ -26,7 +27,7 @@ export function InviteUserModal(props) {
   return (
     <Modal {...props}>
       <Modal.Header closeButton>
-        <Modal.Title>Add Secure Note</Modal.Title>
+        <Modal.Title>Invite User</Modal.Title>
       </Modal.Header>
       <Modal.Body className="show-grid">
         <Container>

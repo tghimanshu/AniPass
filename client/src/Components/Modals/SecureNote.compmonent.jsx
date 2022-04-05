@@ -9,6 +9,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import http from "../../Utils/http";
 
 export function AddSecureNoteModal(props) {
   const {
@@ -26,8 +27,8 @@ export function AddSecureNoteModal(props) {
     if (data.expiresAt && data.expiresAt === "") {
       delete data.expiresAt;
     }
-    const userId = localStorage.getItem("user");
-    await axios.post(`http://localhost:5000/u/${userId}/secureNotes`, data);
+    const userId = localStorage.getItem("userId");
+    await http.post(`/u/${userId}/secureNotes`, data);
     props.onHide();
     navigate("/secureNotes");
   };
@@ -57,14 +58,7 @@ export function AddSecureNoteModal(props) {
               <input
                 type="text"
                 placeholder="Enter Title....."
-                className={
-                  "form-control " +
-                  (watch("title") === ""
-                    ? ""
-                    : errors.title
-                    ? "is-invalid"
-                    : "is-valid")
-                }
+                className={"form-control "}
                 {...register("title", {
                   required: true,
                   minLength: 5,
@@ -96,14 +90,7 @@ export function AddSecureNoteModal(props) {
                 <input
                   type="datetime-local"
                   placeholder="Enter Title....."
-                  className={
-                    "form-control " +
-                    (watch("title") === ""
-                      ? ""
-                      : errors.title
-                      ? "is-invalid"
-                      : "is-valid")
-                  }
+                  className={"form-control "}
                   {...register("expiresAt", {
                     required: { value: true, message: "Title Is Required" },
                   })}
@@ -135,14 +122,7 @@ export function AddSecureNoteModal(props) {
                 <input
                   type="number"
                   placeholder="Number Of Views..."
-                  className={
-                    "form-control " +
-                    (watch("totalViews") === ""
-                      ? ""
-                      : errors.title
-                      ? "is-invalid"
-                      : "is-valid")
-                  }
+                  className={"form-control "}
                   {...register("totalViews", {
                     required: { value: true },
                   })}
@@ -166,14 +146,7 @@ export function AddSecureNoteModal(props) {
               <input
                 type="text"
                 placeholder="Enter Note....."
-                className={
-                  "form-control " +
-                  (watch("password") === ""
-                    ? ""
-                    : errors.title
-                    ? "is-invalid"
-                    : "is-valid")
-                }
+                className={"form-control "}
                 {...register("password", {
                   required: { value: true, message: "Password Is Required" },
                 })}
@@ -196,14 +169,7 @@ export function AddSecureNoteModal(props) {
               <input
                 type="text"
                 placeholder="Enter Note....."
-                className={
-                  "form-control " +
-                  (watch("note") === ""
-                    ? ""
-                    : errors.title
-                    ? "is-invalid"
-                    : "is-valid")
-                }
+                className={"form-control "}
                 {...register("note", {
                   required: { value: true, message: "Title Is Required" },
                   minLength: {

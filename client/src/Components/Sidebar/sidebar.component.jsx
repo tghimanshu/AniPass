@@ -13,7 +13,7 @@ export const Sidebar = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (!localStorage.getItem("user")) {
+    if (!localStorage.getItem("userId")) {
       navigate("/signIn");
     }
   }, []);
@@ -110,7 +110,7 @@ export const Sidebar = () => {
           <NavLink
             to="/passwords"
             className={({ isActive }) =>
-              isActive ? "nav-link active" : "nav-link text-white"
+              isActive ? "nav-link " : "nav-link text-white"
             }
           >
             Passwords
@@ -120,7 +120,7 @@ export const Sidebar = () => {
           <NavLink
             to="/secureNotes"
             className={({ isActive }) =>
-              isActive ? "nav-link active" : "nav-link text-white"
+              isActive ? "nav-link " : "nav-link text-white"
             }
           >
             Secure Notes
@@ -142,7 +142,7 @@ export const Sidebar = () => {
           <NavLink
             to="/passwords"
             className={({ isActive }) =>
-              isActive ? "nav-link active" : "nav-link text-white"
+              isActive ? "nav-link " : "nav-link text-white"
             }
           >
             Passwords
@@ -152,7 +152,7 @@ export const Sidebar = () => {
           <NavLink
             to="/secureNotes"
             className={({ isActive }) =>
-              isActive ? "nav-link active" : "nav-link text-white"
+              isActive ? "nav-link " : "nav-link text-white"
             }
           >
             Secure Notes

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DataTable from "react-data-table-component";
+import http from "../../Utils/http";
 
 export const Dashboard = () => {
   const [users, setUsers] = useState(null);
 
   useEffect(() => {
     const getUsers = async () => {
-      const data = await axios.get("http://localhost:5000/users");
+      const data = await http.get("/users");
       setUsers(data.data.body);
     };
     getUsers();

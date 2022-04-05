@@ -32,6 +32,11 @@ export const SecureNotes = () => {
       selector: (row) => row.expires,
       sortable: true,
     },
+    {
+      name: "Views Left",
+      selector: (row) => row.views,
+      sortable: true,
+    },
     { name: "", selector: (row) => row.actions },
   ];
 
@@ -57,6 +62,15 @@ export const SecureNotes = () => {
                   " - " +
                   new Date(note.expiresAt).toLocaleTimeString()
                 : "Never Expires",
+              views: (
+                <span>
+                  {note.totalViews === -1 ? (
+                    <span>Unlimited</span>
+                  ) : (
+                    `${note.views}/${note.totalViews}`
+                  )}
+                </span>
+              ),
               actions: (
                 <div>
                   <button className="btn btn-link">

@@ -3,6 +3,7 @@ import axios from "axios";
 import DataTable from "react-data-table-component";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { InviteUserModal } from "../../Components/Modals/InviteUser.Modal";
+import http from "../../Utils/http";
 
 export const TeamProfile = () => {
   const [users, setUsers] = useState(null);
@@ -36,7 +37,7 @@ export const TeamProfile = () => {
 
   useEffect(() => {
     const getUsers = async () => {
-      const data = await axios.get("http://localhost:5000/users");
+      const data = await http.get("/users");
       setUsers(data.data.body);
     };
     getUsers();

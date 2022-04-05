@@ -42,7 +42,7 @@ export const MultiSelect = ({ name, control }) => {
         addCategoryAction({
           title: data,
           color: arrayElem,
-          user: localStorage.getItem("user"),
+          user: localStorage.getItem("userId"),
         })
       )
     ).then(() => {

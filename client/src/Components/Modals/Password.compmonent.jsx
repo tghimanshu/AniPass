@@ -21,7 +21,7 @@ export function AddPasswordModal(props) {
     } else {
       data.categories = data.categories.map((c) => c.value);
     }
-    // const userId = localStorage.getItem("user");
+    // const userId = localStorage.getItem("userId");
     // await axios.post(`http://localhost:5000/u/${userId}/passwords`, data);
     Promise.resolve(dispatch(addPasswordActions(data))).then(() => {
       props.onHide();
@@ -33,7 +33,7 @@ export function AddPasswordModal(props) {
   return (
     <Modal {...props}>
       <Modal.Header closeButton>
-        <Modal.Title>Add Secure Note</Modal.Title>
+        <Modal.Title>Add Password</Modal.Title>
       </Modal.Header>
       <Modal.Body className="show-grid">
         <Container>
