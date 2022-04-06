@@ -88,7 +88,7 @@ export const Passwords = () => {
                   {category.title}
                 </span>
               )),
-              password: <span>********</span>,
+              password: <span><CopyToClipboard text={password.password}><span>********</span></CopyToClipboard></span>,
               actions: (
                 <div>
                   <button className="btn btn-link">

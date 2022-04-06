@@ -43,6 +43,7 @@ export const Navbar = () => {
                 as="button"
                 onClick={() => {
                   localStorage.removeItem("user");
+                  localStorage.removeItem("userId");
                   navigate("/signIn");
                 }}
               >
