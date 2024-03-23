@@ -2,10 +2,9 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
 mongoose
-  // .connect("mongodb://localhost/AniPass")
-  .connect(
-    "mongodb://anipass:gE77Lc3ummkqFBcTW1ilkwItnem8BKyjsb7gMN6meOUOCsdN1v16JC140DJnbXgA1GHepZKO8K1ajhtrIFr23g==@anipass.mongo.cosmos.azure.com:10255/anipass?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@anipass@"
-  )
+  .connect("mongodb://localhost/AniPass")
+  // .connect( "mongodb://anipass:gE77Lc3ummkqFBcTW1ilkwItnem8BKyjsb7gMN6meOUOCsdN1v16JC140DJnbXgA1GHepZKO8K1ajhtrIFr23g==@anipass.mongo.cosmos.azure.com:10255/anipass?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@anipass@"
+  // )
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.log(err.message));
 

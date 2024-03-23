@@ -24,6 +24,9 @@ import {
   ADD_CATEGORIES_REQUEST,
   ADD_CATEGORIES_SUCCESS,
   ADD_CATEGORIES_FAILED,
+  SINGLE_SECURE_NOTE_FAILED,
+  SINGLE_SECURE_NOTE_SUCCESS,
+  SINGLE_SECURE_NOTE_REQUEST,
 } from "../Constants/constants";
 
 /* PASSWORD ACTIONS */
@@ -115,6 +118,29 @@ export const secureNoteAction = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: SECURE_NOTE_FAILED,
+      payload: error,
+      // error.response && error.response.data.message
+      //   ? error.response.data.message
+      //   : error.message,
+    });
+  }
+};
+
+export const getSingleSecureNoteAction = (id) => async (dispatch) => {
+  try {
+    dispatch({
+      type: SINGLE_SECURE_NOTE_REQUEST,
+    });
+    const { data } = await http.get(
+      "/u/" + localStorage.getItem("userId") + "/secureNotes/" + id
+    );
+    dispatch({
+      type: SINGLE_SECURE_NOTE_SUCCESS,
+      payload: data.body,
+    });
+  } catch (error) {
+    dispatch({
+      type: SINGLE_SECURE_NOTE_FAILED,
       payload: error,
       // error.response && error.response.data.message
       //   ? error.response.data.message

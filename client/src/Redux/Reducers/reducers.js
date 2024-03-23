@@ -23,6 +23,9 @@ import {
   ADD_CATEGORIES_REQUEST,
   ADD_CATEGORIES_SUCCESS,
   ADD_CATEGORIES_FAILED,
+  SINGLE_SECURE_NOTE_SUCCESS,
+  SINGLE_SECURE_NOTE_REQUEST,
+  SINGLE_SECURE_NOTE_FAILED,
 } from "../Constants/constants";
 
 /* SECURE NOTE REDUCERS */
@@ -34,6 +37,19 @@ export const secureNoteReducer = (state = { secureNotes: null }, action) => {
     case SECURE_NOTE_SUCCESS:
       return { loading: false, secureNotes: action.payload };
     case SECURE_NOTE_FAILED:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const singleSecureNoteReducer = (state = { secureNote: null }, action) => {
+  switch (action.type) {
+    case SINGLE_SECURE_NOTE_REQUEST:
+      return { loading: true, secureNote: null };
+    case SINGLE_SECURE_NOTE_SUCCESS:
+      return { loading: false, secureNote: action.payload };
+    case SINGLE_SECURE_NOTE_FAILED:
       return { loading: false, error: action.payload };
     default:
       return state;

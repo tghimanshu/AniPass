@@ -36,7 +36,7 @@ function Pages() {
 function App() {
   return (
     <Fragment>
-      <Router basename="/anipassFrontend">
+      <Router>
         <Routes>
           <Route path="/secureNote/:id" element={<ShowSecureNote />} />
           <Route path="/signin" element={<SignIn />} />

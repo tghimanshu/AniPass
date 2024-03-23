@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import { useNavigate } from "react-router";
+import http from "../../Utils/http";
 
 export const Navbar = () => {
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const getUsers = async () => {
+      const data = await http.get("/users/" + localStorage.getItem("userId"));
+      console.log(data);
+      setUser(data.data.body);
+    };
+    getUsers();
+  }, []);
+
   return (
     <div className="mainContent">
       <div className="px-3 py-2 border-bottom mb-3">
@@ -25,14 +37,14 @@ export const Navbar = () => {
               style={{ cursor: "pointer", userSelect: "none" }}
               id="sidebar-profile"
             >
-              <img
+              {/* <img
                 src="https://github.com/mdo.png"
                 alt=""
                 width="32"
                 height="32"
                 className="rounded-circle me-2"
-              />
-              <strong>TG Himanshu</strong>
+              /> */}
+              <strong>{user ? "Hello, " + user.name : "Hello, User"}</strong>
             </Dropdown.Toggle>
 
             <Dropdown.Menu variant="dark">

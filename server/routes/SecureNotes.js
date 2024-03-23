@@ -5,11 +5,29 @@ const bcrpyt = require("bcrypt");
 
 router.get("/:id", async function (req, res, next) {
   try {
-    const secureNote = await SecureNote.findById(req.userId);
+    const secureNote = await SecureNote.findById(req.params.id);
     res.json({
       success: true,
       body: secureNote,
     });
+  } catch (error) {}
+});
+
+router.post("/:id/password", async function (req, res, next) {
+  try {
+    const secureNote = await SecureNote.findById(req.params.id);
+    const isThere = await bcrpyt.compare(req.body.password, secureNote.password);
+    if(isThere) {
+    res.json({
+      success: true,
+      body: secureNote,
+    });
+    } else {
+      res.json({
+        success: false,
+        body: "Wrong Password"
+      })
+    }
   } catch (error) {}
 });
 

@@ -8,6 +8,7 @@ import {
   deleteSecureNoteReducer,
   passwordsReducer,
   secureNoteReducer,
+  singleSecureNoteReducer,
 } from "./Reducers/reducers";
 
 const reducers = combineReducers({
@@ -15,6 +16,7 @@ const reducers = combineReducers({
   deletedPassword: deletePasswordsReducer,
   addedPassword: addPasswordReducer,
   secureNotes: secureNoteReducer,
+  secureNote: singleSecureNoteReducer,
   deletedSecureNote: deleteSecureNoteReducer,
   addedSecureNote: addSecureNoteReducer,
   categories: categoriesReducer,
